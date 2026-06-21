@@ -1,0 +1,8 @@
+dist/
+node_modules/
+contexto/
+*.js.map
+.env
+.synapse-cache/
+coverage/
+*.tsbuildinfo

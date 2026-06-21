@@ -1,0 +1,63 @@
+{
+  "name": "synapse-code-mcp",
+  "version": "0.1.0",
+  "description": "MCP server that exposes local code repositories to AI assistants with semantic context",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "synapse-code-mcp": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "dev": "tsx watch src/index.ts",
+    "start": "node dist/index.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint src tests --ext .ts",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run typecheck && npm run lint && npm run build"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "ai",
+    "code-assistant",
+    "code-context",
+    "developer-tools",
+    "context",
+    "semantic",
+    "claude"
+  ],
+  "author": "Eltortilla1",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Eltortilla1/synapse-code-mcp.git"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.13.0",
+    "commander": "^12.1.0",
+    "fast-glob": "^3.3.2",
+    "ignore": "^6.0.2",
+    "pino": "^9.5.0",
+    "ts-morph": "^23.0.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.0",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
+    "eslint": "^8.57.0",
+    "prettier": "^3.3.3",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0",
+    "vitest": "^2.1.0"
+  }
+}

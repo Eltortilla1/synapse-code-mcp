@@ -1,0 +1,11 @@
+{
+  "maxFileSize": 524288,
+  "maxSearchResults": 50,
+  "maxTreeDepth": 5,
+  "maxDependencyDepth": 2,
+  "extraIgnorePatterns": [
+    "*.generated.ts",
+    "**/__mocks__/**"
+  ],
+  "logLevel": "info"
+}

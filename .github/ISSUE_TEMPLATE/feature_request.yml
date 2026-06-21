@@ -1,0 +1,40 @@
+name: Feature request
+description: Suggest a new capability or improvement
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before opening a feature request, please check the [ROADMAP](../../ROADMAP.md) to see if it is already planned.
+        For large changes, consider opening a discussion issue first — see [CONTRIBUTING.md](../../.github/CONTRIBUTING.md#5-proposing-a-large-change).
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+      description: |
+        Describe the concrete situation where Synapse falls short today.
+        The more specific, the better — "I was doing X and couldn't because Y" is more useful than "it would be nice to have Z".
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives you have considered
+      description: |
+        What workarounds or other approaches did you try? Why are they not sufficient?
+    validations:
+      required: false
+
+  - type: dropdown
+    id: willing-to-implement
+    attributes:
+      label: Are you willing to implement this yourself?
+      description: No commitment required — just helps us triage and plan.
+      options:
+        - "Yes, I'd like to submit a PR"
+        - "Maybe, if someone can point me in the right direction"
+        - "No, I'm requesting it for someone else to pick up"
+    validations:
+      required: true

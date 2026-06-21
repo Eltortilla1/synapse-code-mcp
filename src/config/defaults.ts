@@ -1,0 +1,42 @@
+import { SynapseConfig } from '../types/config.js';
+
+export const DEFAULT_IGNORE_PATTERNS: string[] = [
+  'node_modules',
+  '.git',
+  'dist',
+  'build',
+  'out',
+  '.next',
+  '.nuxt',
+  '.svelte-kit',
+  '__pycache__',
+  '*.pyc',
+  '.venv',
+  'venv',
+  'env',
+  '.env',
+  'target',
+  'vendor',
+  '.idea',
+  '.vscode',
+  '*.log',
+  '*.lock',
+  'package-lock.json',
+  'yarn.lock',
+  'pnpm-lock.yaml',
+  'coverage',
+  '.nyc_output',
+  '*.min.js',
+  '*.min.css',
+  '*.map',
+];
+
+export const DEFAULT_CONFIG: Omit<SynapseConfig, 'root' | 'serverVersion'> = {
+  maxFileSize: 512 * 1024,
+  maxSearchResults: 50,
+  maxTreeDepth: 5,
+  maxDependencyDepth: 2,
+  extraIgnorePatterns: [],
+  logLevel: 'info',
+  serverName: 'synapse-code-mcp',
+};
