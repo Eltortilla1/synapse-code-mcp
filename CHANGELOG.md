@@ -9,6 +9,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+[Unreleased]: https://github.com/Eltortilla1/synapse-code-mcp/compare/v0.2.0...HEAD
+
+---
+
+## [0.2.0] — 2026-06-28
+
+### Added
+
+- **`get_project_index` — `output_format` parameter** — add `output_format: "json"` to receive the raw symbol data as a structured JSON object instead of the default Markdown text. Useful for programmatic post-processing (dashboards, complexity metrics, tooling). Default (`"markdown"`) is unchanged.
+
+## [0.1.0] — 2026-06-01
+
 ### Added
 
 - **`get_project_index`** — returns a compressed semantic map of the entire project: all exported functions, classes, interfaces, and types with their signatures. Enforced to ≤ 40% of raw source size via automated benchmark budget.
@@ -25,4 +37,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Automated benchmark suite (`tests/performance/`) with time and heap budgets enforced in CI.
 - Structured logging via [pino](https://getpino.io).
 
-[Unreleased]: https://github.com/Eltortilla1/synapse-code-mcp/compare/main...HEAD
+[0.2.0]: https://github.com/Eltortilla1/synapse-code-mcp/compare/v0.1.0...v0.2.0
+[0.1.0]: https://github.com/Eltortilla1/synapse-code-mcp/releases/tag/v0.1.0

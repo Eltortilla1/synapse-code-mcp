@@ -12,6 +12,10 @@ export const GetProjectIndexSchema = z.object({
     .string()
     .optional()
     .describe('Glob to restrict which files to index (relative to project root), e.g. "src/**/*.ts".'),
+  output_format: z
+    .enum(['markdown', 'json'])
+    .optional()
+    .describe('Output format. "markdown" (default) returns a human-readable text index. "json" returns the raw symbol data as a structured JSON object.'),
 });
 
 export type GetProjectIndexInput = z.infer<typeof GetProjectIndexSchema>;
@@ -31,6 +35,10 @@ export async function handleGetProjectIndex(
 
   if (index.totalFiles === 0) {
     return 'No indexable source files found in the project.';
+  }
+
+  if ((input.output_format ?? 'markdown') === 'json') {
+    return JSON.stringify(index, null, 2);
   }
 
   const parts: string[] = [];

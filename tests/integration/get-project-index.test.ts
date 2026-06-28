@@ -60,6 +60,22 @@ describe('Integration: get_project_index', () => {
     expect(result).toContain('get_semantic_context');
   });
 
+  it('returns valid JSON when output_format is "json"', async () => {
+    const result = await handleGetProjectIndex({ output_format: 'json' }, config);
+    const parsed = JSON.parse(result) as { totalFiles: number; totalSymbols: number; files: unknown[] };
+    expect(parsed).toHaveProperty('totalFiles');
+    expect(parsed).toHaveProperty('totalSymbols');
+    expect(parsed).toHaveProperty('files');
+    expect(Array.isArray(parsed.files)).toBe(true);
+    expect(parsed.totalFiles).toBeGreaterThan(0);
+  });
+
+  it('returns markdown by default when output_format is omitted', async () => {
+    const result = await handleGetProjectIndex({}, config);
+    expect(result).toMatch(/^# Project Index:/m);
+    expect(() => { JSON.parse(result); }).toThrow();
+  });
+
   it('returns "No indexable source files" for an empty directory', async () => {
     const emptyDir = fs.mkdtempSync(path.join(os.tmpdir(), 'synapse-empty-'));
     try {

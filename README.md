@@ -68,7 +68,24 @@ Returns a compressed semantic map of the entire project: all exported functions,
   createUser(data: Partial<User>): User [export]
 ```
 
-**Parameters:** `file_pattern` (glob to narrow scope), `include_non_exported`
+**Parameters:** `file_pattern` (glob to narrow scope), `include_non_exported`, `output_format` (`"markdown"` default · `"json"` for structured output)
+
+Use `output_format: "json"` to get the raw symbol data as a structured object, which is easier to post-process programmatically:
+
+```json
+{
+  "root": "/path/to/project",
+  "totalFiles": 47,
+  "totalSymbols": 312,
+  "files": [
+    {
+      "relativePath": "src/services/user-service.ts",
+      "language": "typescript",
+      "symbols": [...]
+    }
+  ]
+}
+```
 
 > **Large projects:** output grows linearly with the number of exported symbols. For monorepos or projects with 500+ files, use `file_pattern` to scope the index to one area at a time — e.g. `"src/services/**/*.ts"`.
 
